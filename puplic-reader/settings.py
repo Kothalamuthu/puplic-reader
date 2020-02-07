@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'puplicReader.urls'
+ROOT_URLCONF = 'puplic-reader.urls'
 
 TEMPLATES = [
     {
@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'puplicReader.wsgi.application'
+WSGI_APPLICATION = 'puplic-reader.wsgi.application'
 
 
 # Database
