@@ -8,7 +8,8 @@ from django.views.decorators.csrf import csrf_exempt
 from json import loads
 from .serializers import UserregisterSerializer
 from rest_framework.generics import GenericAPIView, RetrieveUpdateAPIView
-
+from django.contrib.auth.models import User
+from .models import *
 # Create your views here.
 
 @csrf_exempt
@@ -62,13 +63,15 @@ def loginForm(request):
         data = loads(request.body)
         username = data['username']
         password = data['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            print("user",user)
-            return HttpResponse("user Login")
+        # user = authenticate(request, username=username, password=password)
+        # if user is not None:
+        #     print("user",user)
+        #     return HttpResponse("user Login")
 
-        else:
-            return HttpResponse("Please Give proper details")
+        # else:
+        j = User.objects.filter(password=password,username=username)
+        print(j)
+        return HttpResponse("Please Give proper details")
 
 
 class loginSerializers(GenericAPIView):
